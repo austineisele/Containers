@@ -30,10 +30,16 @@ sudo docker exec -it azuresqledge "bash"
 #f. use the SQL tool. This allows me to actually enter tables and such.
 /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<YourNewStrong@Passw0rd>"
 
-#gcreate a database:
-CREATE DATABASE LoadManagerDb
-Go
-
+   #i. gcreate a database:
+   CREATE DATABASE LoadManagerDb
+   Go
+   #ii. Create the Tables: 
+   Use LoadManagerDb
+   CREATE TABLE Loads (LoadId INT, CarrierSCAC NVARCHAR(10), LoadDate DATE)
+   Go
+   #iii. This is what the insertions look like: 
+    INSERT INTO Loads VALUES(9602314, 'YUSEN', '2022-11-05');
+    Go
 
 # Create a resource group
 az group create --name azuremolchapter19 --location westeurope
